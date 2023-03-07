@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        #title_card {
+            margin-left: 1%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
+            <span style="margin-left:1%;"><a class="navbar-brand" href="./index.html">Car Rental</a></span>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./catalog.html">Catalog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./credit.html">Credit</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">Available Car's</h1>
+                    <p class="lead text-muted">Here is our selection of cars you can rent today!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./images/colorado.jpg" alt="colorado">
+                            <div class="card-header">
+                                <h2>Chevrolet Colorado</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">The Chevrolet Colorado is a compact pickup truck that has been
+                                    manufactured by the Chevrolet division of General Motors since 2004. It's available
+                                    in a variety of trim levels and configurations, including extended cab and crew cab
+                                    options, as well as rear-wheel drive and four-wheel drive versions.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./images/colorado.jpg">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">$175/day</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./images/corolla.jpg" alt="corolla">
+                            <div class="card-header">
+                                <h2>Toyota Corolla</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">The Toyota Corolla is a compact car that has been in production
+                                    since 1966 and is one of the best-selling vehicles in the world. It's known for its
+                                    reliability, fuel efficiency, and affordability.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./images/corolla.jpg">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">$105/day</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./images/jeep.jpg" alt="jeep">
+                            <div class="card-header">
+                                <h2>Jeep Wrangler</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">The Jeep Wrangler is a compact SUV that has been in production
+                                    since 1987 and is known for its off-road capabilities and distinctive styling. The
+                                    Wrangler is available in a variety of configurations, including two-door and
+                                    four-door models, as well as soft-top and hard-top options. </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./images/jeep.jpg">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">$205/day</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./images/mazda.jpg" alt="mazda">
+                            <div class="card-header">
+                                <h2>Mazda CX-5</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">The Mazda CX-5 is a compact crossover SUV that has been in
+                                    production since 2012. It's known for its stylish design, engaging driving dynamics,
+                                    and well-appointed interior.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./images/mazda.jpg">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">$165/day</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./images/mini_cooper.jpg" alt="mini_cooper">
+                            <div class="card-header">
+                                <h2>Mini Cooper</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">The Mini Cooper has a distinctive and playful design that sets it
+                                    apart from other cars on the road. Renting a Mini Cooper is a great way to make a
+                                    statement and stand out from the crowd. The Mini Cooper is a small car, which makes
+                                    it easy to park and navigate in tight city spaces. </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./images/mini_cooper.jpg">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">$75/day</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="./images/tacoma.jpg" alt="tacoma">
+                            <div class="card-header">
+                                <h2>Toyota Tacoma</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">The Toyota Tacoma is a compact pickup truck that has been in
+                                    production since 1995 and is known for its reliability, durability, and off-road
+                                    capabilities. It's available in a variety of configurations, including extended and
+                                    crew cab models, as well as two-wheel drive and four-wheel drive options.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="./images/tacoma.jpg">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        </a>
+                                    </div>
+                                    <small class="text-muted">$155/day</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">&copy; 2023 Copyright: Car Rental</p>
+            <p class="mb-0"></p>
+        </div>
+    </footer>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+
+</html>
