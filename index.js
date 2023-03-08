@@ -22,6 +22,7 @@ async function startPage2(){
 function loadPage2(){
 
     let page2 = document.getElementById("cards");
+    page2.innerHTML = "";
     for(let card of jsonData["page2"]){
         let name = card["carName"];
         let description = card["description"];
@@ -41,7 +42,7 @@ function loadPage2(){
                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                     </a>
                 </div>
-                <small class="text-muted">${price}</small>
+                <small class="text-muted">\$${price}/day</small>
             </div>
         </div>
     </div>
