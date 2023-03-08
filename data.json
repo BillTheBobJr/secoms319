@@ -1,9 +1,41 @@
 {
-    "page1" : [
-
-    ],
-
-    "page2" : [
-        
+    "page1": [],
+    "page2": [
+        {
+            "carName": "Chevrolet Colorado",
+            "description": "The Chevrolet Colorado is a compact pickup truck that has been manufactured by the Chevrolet division of General Motors since 2004. It's available in a variety of trim levels and configurations, including extended cab and crew cab options, as well as rear-wheel drive and four-wheel drive versions.",
+            "price": "$175/day",
+            "image": "./images/colorado.jpg"
+        },
+        {
+            "carName": "Toyota Corolla",
+            "description": "The Toyota Corolla is a compact car that has been in production since 1966 and is one of the best-selling vehicles in the world. It's known for its reliability, fuel efficiency, and affordability.",
+            "price": "$105/day",
+            "image": "./images/corolla.jpg"
+        },
+        {
+            "carName": "Jeep Wrangler",
+            "description": "The Jeep Wrangler is a compact SUV that has been in production since 1987 and is known for its off-road capabilities and distinctive styling. The Wrangler is available in a variety of configurations, including two-door and four-door models, as well as soft-top and hard-top options.",
+            "price": "$205/day",
+            "image": "./images/jeep.jpg"
+        },
+        {
+            "carName": "Mazda CX-5",
+            "description": "The Mazda CX-5 is a compact crossover SUV that has been in production since 2012. It's known for its stylish design, engaging driving dynamics, and well-appointed interior.",
+            "price": "$165/day",
+            "image": "./images/mazda.jpg"
+        },
+        {
+            "carName": "Mini Cooper",
+            "description": "The Mini Cooper has a distinctive and playful design that sets it apart from other cars on the road. Renting a Mini Cooper is a great way to make a statement and stand out from the crowd. The Mini Cooper is a small car, which makes it easy to park and navigate in tight city spaces.",
+            "price": "$75/day",
+            "image": "./images/mini_cooper.jpg"
+        },
+        {
+            "carName": "Toyota Tacoma",
+            "description": "The Toyota Tacoma is a compact pickup truck that has been in production since 1995 and is known for its reliability, durability, and off-road capabilities. It's available in a variety of configurations, including extended and crew cab models, as well as two-wheel drive and four-wheel drive options.",
+            "price": "$155/day",
+            "image": "./images/tacoma.jpg"
+        }
     ]
 }
