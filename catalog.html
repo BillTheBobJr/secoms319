@@ -47,11 +47,11 @@
         }
     </style>
 
-    <script src = "index.js"></script>
+    <script src="index.js"></script>
 
 </head>
 
-<body onload = "javascript:startPage2();">
+<body onload="javascript:startPage2();">
 
     <header>
         <nav class="navbar navbar-expand navbar-dark bg-dark">
@@ -84,8 +84,19 @@
         </section>
 
         <div class="album py-5 bg-light">
+
+            <div class="btn-group-sm" id="buttons">
+                <div style = "padding-left:6%; padding-bottom:1%;">
+                    <button onclick="javascript:page2SortBy('price')" class="btn btn-outline-dark btn-light">Sort By
+                        Price Acending</button>
+                    <button onclick="javascript:page2SortBy('price', -1)" class="btn btn-outline-dark btn-light">Sort By
+                        Price Decending</button>
+                    <button onclick="javascript:page2SortBy('carName')" class="btn btn-outline-dark btn-light">Sort By
+                        Name</button>
+                </div>
+            </div>
             <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id = "cards"></div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="cards"></div>
             </div>
         </div>
 
