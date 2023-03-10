@@ -45,6 +45,15 @@
         #title_card {
             margin-left: 1%;
         }
+
+        .vcenter-item{
+            margin-top: 30vh;
+            padding: 5vh;
+        }
+
+        .main-rent{
+            display: none;
+        }
     </style>
 
     <script src="index.js"></script>
@@ -74,6 +83,29 @@
 
     <main>
 
+        <div class="position-fixed fixed-top h-100 w-100 bg-primary bg-opacity-50 main-rent" id="myModal">
+            <div class="position-fixed fixed-top w-50 bg-white mx-auto vcenter-item">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <h1>So you want a car</h1>
+                        <p id="modalDescription"></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" id="closeBtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div> 
+
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
@@ -81,12 +113,14 @@
                     <p class="lead text-muted">Here is our selection of cars you can rent today!</p>
                 </div>
             </div>
+
         </section>
 
         <div class="album py-5 bg-light">
 
+
             <div class="btn-group-sm" id="buttons">
-                <div style = "padding-left:6%; padding-bottom:1%;">
+                <div style="padding-left:6%; padding-bottom:1%;">
                     <button onclick="javascript:page2SortBy('price')" class="btn btn-outline-dark btn-light">Sort By
                         Price Acending</button>
                     <button onclick="javascript:page2SortBy('price', -1)" class="btn btn-outline-dark btn-light">Sort By
@@ -96,9 +130,15 @@
                 </div>
             </div>
             <div class="container">
+
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="cards"></div>
+                <div id="rent">
+
+
+                </div>
             </div>
         </div>
+
 
     </main>
 
@@ -114,6 +154,7 @@
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    
 
 
 
