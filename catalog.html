@@ -46,12 +46,12 @@
             margin-left: 1%;
         }
 
-        .vcenter-item{
-            margin-top: 30vh;
+        .vcenter-item {
+            margin-top: 8vh;
             padding: 5vh;
         }
 
-        .main-rent{
+        .main-rent {
             display: none;
         }
     </style>
@@ -83,28 +83,67 @@
 
     <main>
 
-        <div class="position-fixed fixed-top h-100 w-100 bg-primary bg-opacity-50 main-rent" id="myModal">
-            <div class="position-fixed fixed-top w-50 bg-white mx-auto vcenter-item">
+
+
+        <div class="position-fixed fixed-top h-100 w-100 bg-black bg-opacity-50 main-rent" id="myModal">
+            <div class="position-fixed fixed-top w-50 bg-white mx-auto vcenter-item rounded-4">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitle"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <h1>So you want a car</h1>
-                        <p id="modalDescription"></p>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" id="closeBtn" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
+                        <div class="modal-header">
+                            
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h1 class="modal-title" id="modalTitle"></h1>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p id="modalPrice">Price</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div id="modalImage" class="text-center"></div>
+                        <div class="modal-body">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Start Date</h5>
+                                        <input type="date" id="startDate">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>End Date</h5>
+                                        <input type="date" id="endDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="Your Name" id="name">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" placeholder="email address" id="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>    
+
+                            <p id="modalDescription"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="closeBtn" class="btn btn-secondary"
+                                data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="pick">Pick dates</button>
+                        </div>
                     </div>
-                  </div>
+                </div>
             </div>
-        </div> 
+        </div>
 
         <section class="py-5 text-center container">
             <div class="row py-lg-5">
@@ -154,7 +193,7 @@
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 
 
 

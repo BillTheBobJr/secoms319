@@ -19,8 +19,12 @@ function prepRent() {
 
     // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
-
+    var pickBtn = document.getElementById("pick");
     var closeBtn = document.getElementById("closeBtn");
+    var startDate = document.getElementById("startDate");
+    var endDate = document.getElementById("endDate");
+
+    
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -28,6 +32,18 @@ function prepRent() {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
+    }
+
+    pickBtn.onclick = function(){
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        if(name && email && startDate && endDate){
+            alert(name + " a request has been submited for the following dates.\nStart Date:" + startDate.value + "\nEnd Date:"+ endDate.value + "\nyou will get an email with follow up information. The email was sent to:\n"+email);
+        }else{
+            alert("Invalid input: Please fill out all the information");
+        }
+        
     }
 
     closeBtn.onclick = function () {
@@ -47,14 +63,15 @@ function openModal(carname){
     var modal = document.getElementById("myModal");
     var modalTitle = document.getElementById("modalTitle");
     var modalDescription = document.getElementById("modalDescription");
+    var modalImage = document.getElementById("modalImage");
+    var modalPrice = document.getElementById("modalPrice");
 
     let rentData = jsonData.page2.find((car) => car.carName == carname);
 
     modalTitle.innerHTML = carname;
-    
-    
     modalDescription.innerHTML = rentData.description;
-
+    modalImage.innerHTML = `<img src="${rentData.image}" alt="${rentData.carName}" width="50%" height="50%"/>`;
+    modalPrice.innerHTML = `<p>Price = $${rentData.price}/day`;
 
 
     modal.style.display = "block";
