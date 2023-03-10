@@ -1,5 +1,24 @@
 {
-    "page1": [],
+    "page1": [
+        {
+            "imageID": "longImg",
+            "imagePath": "./images/cars.png",
+            "imageAlt": "cars",
+            "width": 10000
+        },
+        {
+            "imageID": "bbb",
+            "imagePath": "./images/bbb.png",
+            "imageAlt": "bbb",
+            "width": 100
+        },
+        {
+            "imageID": "sat",
+            "imagePath": "./images/sat.png",
+            "imageAlt": "sat",
+            "width": 100
+        }
+    ],
     "page2": [
         {
             "carName": "Chevrolet Colorado",

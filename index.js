@@ -3,11 +3,21 @@ var jsonData;
 async function startPage1() {
     await fetch("./data.json")
         .then(response => response.json())
-        .then(data => jsonData = data);
+        .then(data => jsonData1 = data);
     loadPage1();
 }
 
 function loadPage1() {
+
+    for (let imgs of jsonData1["page1"]) {
+
+        let id = imgs["imageID"];
+        let path = imgs["imagePath"];
+        let alt = imgs["imageAlt"];
+        let width = imgs["width"];
+        let longImg = document.getElementById(id);
+        longImg.innerHTML = `<img src="${path}" class="img-fluid" alt="${alt}" width="${width}"   >`;
+    }
 
 }
 
@@ -24,7 +34,7 @@ function prepRent() {
     var startDate = document.getElementById("startDate");
     var endDate = document.getElementById("endDate");
 
-    
+
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
@@ -34,16 +44,16 @@ function prepRent() {
         modal.style.display = "none";
     }
 
-    pickBtn.onclick = function(){
+    pickBtn.onclick = function () {
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
 
-        if(name && email && startDate && endDate){
-            alert(name + " a request has been submited for the following dates.\nStart Date:" + startDate.value + "\nEnd Date:"+ endDate.value + "\nyou will get an email with follow up information. The email was sent to:\n"+email);
-        }else{
+        if (name && email && startDate && endDate) {
+            alert(name + " a request has been submited for the following dates.\nStart Date:" + startDate.value + "\nEnd Date:" + endDate.value + "\nyou will get an email with follow up information. The email was sent to:\n" + email);
+        } else {
             alert("Invalid input: Please fill out all the information");
         }
-        
+
     }
 
     closeBtn.onclick = function () {
@@ -58,7 +68,7 @@ function prepRent() {
     }
 }
 
-function openModal(carname){
+function openModal(carname) {
     prepRent();
     var modal = document.getElementById("myModal");
     var modalTitle = document.getElementById("modalTitle");
@@ -92,7 +102,7 @@ async function startPage2() {
 }
 
 function loadPage2() {
-    
+
     let page2 = document.getElementById("cards");
     page2.innerHTML = "";
     for (let card of jsonData["page2"]) {
