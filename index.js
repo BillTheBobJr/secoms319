@@ -98,15 +98,15 @@ function Main() {
       {view === "browse" && (
         <div>
           <h1>Browse Products</h1>
-          <div className="products">
+          <div className="products card-columns">
             {products.map((product) => (
-              <div key={product.id} className="product-card">
-                <h2>{product.name}</h2>
-                <p>Price: ${product.price}</p>
+              <div key={product.id} className="product-card col card shadow-sm">
+                <h2 className="card-title">{product.name}</h2>
+                <p className="card-subtitle text-muted">Price: ${product.price}</p>
                 <div>
-                  <button onClick={() => addToCart(product, 1)}>+</button>
+                  <button onClick={() => addToCart(product, 1)} className = "btn btn-sm btn-light">+</button>
                   <span>{getItemQuantity(product)}</span>
-                  <button onClick={() => addToCart(product, -1)}>-</button>
+                  <button onClick={() => addToCart(product, -1)} className = "btn btn-sm btn-light">-</button>
                 </div>
               </div>
             ))}
