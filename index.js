@@ -22,7 +22,8 @@ function Main() {
     name: "",
     email: "",
     creditcard: "",
-    address: "",
+    address1: "",
+    address2: ""
   });
 
 
@@ -75,6 +76,12 @@ function Main() {
     return subtotal + tax;
   };
 
+  const getCardNumber = () => {
+    let returnThis = userDetails.creditcard.toString();
+    returnThis = returnThis.replace(/\d{12}/, "************");
+    return returnThis;
+  }
+
   const removeFromCart = (product) => {
     const existingProduct = cart.find((p) => p.id === product.id);
     if (existingProduct) {
@@ -88,7 +95,8 @@ function Main() {
       name: event.target.name.value,
       email: event.target.email.value,
       creditcard: event.target.creditCard.value,
-      address: event.target.address.value,
+      address1: event.target.address1.value,
+      address2: event.target.address2.value
     });
 
     changeView("confirmation");
@@ -155,22 +163,27 @@ function Main() {
           <form onSubmit={confirmationPageGo}>
             <label>
               Name:
-              <input type="text" name="name" />
+              <input type="text" name="name" pattern = "[A-Za-z ]+" required/>
             </label>
             <br />
             <label>
               Email:
-              <input type="email" name="email" />
+              <input type="email" name="email" required/>
             </label>
             <br />
             <label>
               Credit Card:
-              <input type="text" name="creditCard" />
+              <input type="text" name="creditCard" pattern = "\d{16}" required/>
             </label>
             <br />
             <label>
               Address:
-              <input type="text" name="address" />
+              <input type="text" name="address1" required/>
+            </label>
+            <br />
+            <label>
+              Address Line 2:
+              <input type="text" name="address2"/>
             </label>
             <br />
             <input type="submit" value="Submit" />
@@ -193,8 +206,9 @@ function Main() {
           <h3>User Information</h3>
           <p>Name: {userDetails.name}</p>
           <p>Email: {userDetails.email}</p>
-          <p>Card: {userDetails.creditcard}</p>
-          <p>Address: {userDetails.address}</p>
+          <p>Card: {getCardNumber()}</p>
+          <p>Address{userDetails.address2 && (" Line 1")}: {userDetails.address1}</p>
+          {userDetails.address2 && (<p>Address Line 2: {userDetails.address2}</p>)}
           <button
             onClick={() => {
               leaveConfirmation()
