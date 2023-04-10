@@ -30,6 +30,19 @@ function Main() {
     setProducts(productsData);
   }, []);
 
+
+  const searchProducts = () => {
+    let search = document.getElementById("searchQuery").value;
+    const regx = new RegExp(search);
+    let temp = [];
+    for (const product of productsData) {
+      if (regx.test(product.name)) {
+        temp.push(product);
+      }
+    }
+    setProducts(temp);
+  }
+
   const addToCart = (product, quantity) => {
     const existingProduct = cart.find((p) => p.id === product.id);
     if (existingProduct) {
@@ -98,20 +111,28 @@ function Main() {
       {view === "browse" && (
         <div>
           <h1>Browse Products</h1>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <form class="form-inline my-2 my-lg-0 mr-auto">
+              <input className="form-control mr-sm-2" placeholder="Search" aria-label="Search" id="searchQuery"></input>
+              <button className="btn btn-outline-success my-2 my-sm-0" type="button" onClick={() => searchProducts()}>Search</button>
+            </form>
+            <form className="form-inline my-2 my-lg-0">
+              <button onClick={() => changeView("cart")} className="btn btn-outline-primary">Checkout</button>
+            </form>
+          </nav>
           <div className="products card-columns">
             {products.map((product) => (
               <div key={product.id} className="product-card col card shadow-sm">
                 <h2 className="card-title">{product.name}</h2>
                 <p className="card-subtitle text-muted">Price: ${product.price}</p>
                 <div>
-                  <button onClick={() => addToCart(product, 1)} className = "btn btn-sm btn-light">+</button>
+                  <button onClick={() => addToCart(product, 1)} className="btn btn-sm btn-light">+</button>
                   <span>{getItemQuantity(product)}</span>
-                  <button onClick={() => addToCart(product, -1)} className = "btn btn-sm btn-light">-</button>
+                  <button onClick={() => addToCart(product, -1)} className="btn btn-sm btn-light">-</button>
                 </div>
               </div>
             ))}
           </div>
-          <button onClick={() => changeView("cart")}>Go to cart</button>
         </div>
       )}
 
