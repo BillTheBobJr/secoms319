@@ -49,7 +49,7 @@ function Main() {
 
   const searchProducts = () => {
     let search = document.getElementById("searchQuery").value;
-    const regx = new RegExp(search);
+    const regx = new RegExp(search, "i");
     let temp = [];
     for (const product of productsData) {
       if (regx.test(product.name)) {
