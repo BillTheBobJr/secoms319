@@ -229,7 +229,7 @@ function Main() {
               </div>
             </div>
             <br />
-            <input type="submit" value="Submit" className="btn btn-outline-primary" />
+            <input type="submit" value="Order" className="btn btn-outline-primary" />
           </form>
 
         </div>
