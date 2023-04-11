@@ -1,32 +1,38 @@
 [
     {
         "id": 1,
-        "name": "Product 1",
-        "price": 10
+        "name": "Blender",
+        "image": "./Photos/blender.jpg",
+        "price": 50
     },
     {
         "id": 2,
-        "name": "Product 2",
+        "name": "Bento Box",
+        "image": "./Photos/bentobox.jpg",
         "price": 20
     },
     {
         "id": 3,
-        "name": "Product 3",
-        "price": 30
+        "name": "Measuring Cup",
+        "image": "./Photos/measuringcup.jpg",
+        "price": 10
     },
     {
         "id": 4,
-        "name": "Product 4",
-        "price": 20
+        "name": "Mug",
+        "image": "./Photos/mug.jpg",
+        "price": 3
     },
     {
         "id": 5,
-        "name": "Product 5",
-        "price": 130
+        "name": "Spatula",
+        "image": "./Photos/spatula.jpg",
+        "price": 5
     },
     {
         "id": 6,
-        "name": "Product 6",
-        "price": 930
+        "name": "Toaster",
+        "image": "./Photos/toaster.jpg",
+        "price": 40
     }
 ]

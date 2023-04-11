@@ -155,6 +155,7 @@ function Main() {
             {products.map((product) => (
               <div key={product.id} className="product-card col card shadow-sm">
                 <h2 className="card-title">{product.name}</h2>
+                <img src={require(`${product.image}`)} alt = {product.name} height="200px"></img>
                 <p className="card-subtitle text-muted">Price: ${product.price}</p>
                 <div>
                   <button onClick={() => addToCart(product, 1)} className="btn btn-sm btn-light">+</button>
@@ -177,6 +178,7 @@ function Main() {
             <table className="table">
               <thead>
                 <tr>
+                  <th scope ="col">Product</th>
                   <th scope="col">Name</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Price</th>
@@ -186,6 +188,7 @@ function Main() {
               <tbody>
                 {cart.map((product) => (
                   <tr key={product.id} className="cart-item">
+                    <td><img src={require(`${product.image}`)} alt = {product.name} height="100px"></img></td>
                     <td>{product.name}</td>
                     <td>Quantity: {product.quantity}</td>
                     <td>Total: ${product.price * product.quantity}</td>
