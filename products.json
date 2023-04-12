@@ -3,36 +3,42 @@
         "id": 1,
         "name": "Blender",
         "image": "./Photos/blender.jpg",
+        "text": "This top of the line Blender is hand crafted by our Italian artisans for premire effiency and speed.  Moreover, this beautiful piece of machinary comes with a 3 month warenty!",
         "price": 50
     },
     {
         "id": 2,
         "name": "Bento Box",
         "image": "./Photos/bentobox.jpg",
+        "text": "This Bento Box is truly something special.  Made by the finest steel smiths in all of Japan, forged out of pure Damascus Steel folded 20 times.  This box is prepare to carry any meal you desire.",
         "price": 20
     },
     {
         "id": 3,
         "name": "Measuring Cup",
         "image": "./Photos/measuringcup.jpg",
+        "text": "This Measuring Cup is the perfect addition to any aspiring chef's kitchen. In fact, using this any recipe will be completed to perfection with a money back garuntee.**we are not obligated to recompensate**",
         "price": 10
     },
     {
         "id": 4,
         "name": "Mug",
         "image": "./Photos/mug.jpg",
+        "text": "Designed my George Edgar Ohr himself, this beautiful ceramic mug is a real treat to the eyes.  This extremely verisatle mug is perfect for drinking any fluid under 280 K.",
         "price": 3
     },
     {
         "id": 5,
         "name": "Spatula",
         "image": "./Photos/spatula.jpg",
+        "text": "\"Even Spongebob would be jealous of this!\" - Loyal Customer.  What more can we say?  This Spatula can and will help you masterfully prepare any meal!",
         "price": 5
     },
     {
         "id": 6,
         "name": "Toaster",
         "image": "./Photos/toaster.jpg",
+        "text": "Last and certainly not least is our Next-Gen line of toasters.  Made out of pure platnum, this sleek and shiney design is sure to catch the eye of any of your houseguest to make them swoon.",
         "price": 40
     }
 ]

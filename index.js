@@ -15,6 +15,7 @@ root.render(
 
 
 function Main() {
+  var test = 0;
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [view, setView] = useState("browse");
@@ -153,14 +154,17 @@ function Main() {
           </nav>
           <div className="products card-columns">
             {products.map((product) => (
-              <div key={product.id} className="product-card col card shadow-sm">
+              <div key={product.id} className="product-card card shadow-sm">
                 <h2 className="card-title">{product.name}</h2>
-                <img src={require(`${product.image}`)} alt = {product.name} height="200px"></img>
-                <p className="card-subtitle text-muted">Price: ${product.price}</p>
-                <div>
-                  <button onClick={() => addToCart(product, 1)} className="btn btn-sm btn-light">+</button>
-                  <span>{getItemQuantity(product)}</span>
-                  <button onClick={() => addToCart(product, -1)} className="btn btn-sm btn-light">-</button>
+                <img src={require(`${product.image}`)} alt={product.name} height="200px"></img>
+                <div style={{ marginTop: '2%', marginBottom: '2%' }}>
+                  <p className="card-subtitle text-muted">Price: ${product.price}</p>
+                  <p className="card-text">{product.text}</p>
+                  <div>
+                    <button onClick={() => addToCart(product, 1)} className="btn btn-sm btn-light">+</button>
+                    <span>{getItemQuantity(product)}</span>
+                    <button onClick={() => addToCart(product, -1)} className="btn btn-sm btn-light">-</button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -178,7 +182,7 @@ function Main() {
             <table className="table">
               <thead>
                 <tr>
-                  <th scope ="col">Product</th>
+                  <th scope="col">Product</th>
                   <th scope="col">Name</th>
                   <th scope="col">Quantity</th>
                   <th scope="col">Price</th>
@@ -188,7 +192,7 @@ function Main() {
               <tbody>
                 {cart.map((product) => (
                   <tr key={product.id} className="cart-item">
-                    <td><img src={require(`${product.image}`)} alt = {product.name} height="100px"></img></td>
+                    <td><img src={require(`${product.image}`)} alt={product.name} height="100px"></img></td>
                     <td>{product.name}</td>
                     <td>Quantity: {product.quantity}</td>
                     <td>Total: ${product.price * product.quantity}</td>
