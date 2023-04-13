@@ -15,7 +15,6 @@ root.render(
 
 
 function Main() {
-  var test = 0;
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [view, setView] = useState("browse");
@@ -214,7 +213,7 @@ function Main() {
                 <input placeholder="Name" type="text" name="name" pattern="[A-Za-z ]+" className="form-control" required />
               </div>
               <div className="col">
-                <input placeholder="Email" type="email" name="email" className="form-control" required />
+                <input placeholder="Email" type="email" name="email" className="form-control" pattern = "[A-Za-z1-9@#$%&]+@[a-zA-Z]+\.[a-zA-Z]+" required />
               </div>
             </div>
             <br />
