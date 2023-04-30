@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Request Methods </title>
 </head>
+
 <body>
-    <h1>Hello from GitHub</h1>
-    <p>This is Alex Chambers</p>
+    <h1>Get Method.</h1>
+    <button onclick="getMethod()">Show All users</button>
+    <script>
+        function getMethod() {
+            fetch('http://localhost:8081/allProducts')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var container = document.getElementById("showData");
+                    container.innerHTML = JSON.stringify(data, undefined, 2);
+                })
+        };
+    </script>
+
+    <h1>Get Method 2</h1>
+
+    <button onclick="getMethod()">Show All users</button>
+    <script>
+        async function getMethod() {
+            await fetch('http://localhost:8081/allProductsMongo')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var container = document.getElementById("showData");
+                    container.innerHTML = JSON.stringify(data, undefined, 2);
+                })
+        };
+    </script>
+
+    <h1>Get Product</h1>
+    <form onclick = "getMethodById(id.value)" onsubmit="return false">
+        <input type="text" id="id" name="id" pattern="\d*"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        async function getMethodById(id) {
+            var string = 'http://localhost:8081/product/' + Number(id);
+            await fetch(string)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var container = document.getElementById("showData");
+                    container.innerHTML = JSON.stringify(data, undefined, 2);
+                });
+        };
+    </script>
+
+    <h1>Update</h1>
+    <form onclick = "update(id.value, price.value)" onsubmit="return false">
+        <input type="text" id="id" name="id" pattern="\d*"><br>
+        <input type="text" id="price" name="price" pattern="\d*"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        async function update(id, price) {
+            var string = 'http://localhost:8081/changePrice/id/' + Number(id) + "/price/" + Number(price);
+            console.log(string);
+            await fetch(string)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var container = document.getElementById("showData");
+                    container.innerHTML = JSON.stringify(data, undefined, 2);
+                });
+        };
+    </script>
+
+    <h1>Output:</h1>
+    <pre id="showData"></pre>
 </body>
+
 </html>
