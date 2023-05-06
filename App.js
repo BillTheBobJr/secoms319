@@ -1,7 +1,4 @@
 const mysql = require('mysql2');
-// or as an es module:
-// import { MongoClient } from 'mongodb'
-// Connection URL
 var express = require("express");
 var cors = require("cors");
 var app = express();
@@ -9,6 +6,12 @@ var fs = require("fs");
 var bodyParser = require("body-parser");
 var port = "8081";
 var host = "localhost";
+
+app.use(cors());
+app.use(express.json());
+app.listen(port, host,() => {
+    console.log("App listening at http://%s:%s", host, port);
+});
 
 
 var con = mysql.createConnection({
@@ -42,7 +45,7 @@ app.get("/time/:car", async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     const car = req.params.car;
 
-    let results = await con.promise().query("UPDATE user SET id = \"" + newId + "\" WHERE id = \"" + id + "\"");
+    let results = await con.promise().query("SELECT * FROM time WHERE carId = \"" + car +  "\"");
     res.send(results[0]).status(200);
     console.log(results[0]);
 });
@@ -67,8 +70,8 @@ app.post("/time/reserve", async (req, res) => {
     console.log(values);
 
     let results = await con.promise().query("insert into time (carId, startDate, endDate, price, name, email)  value (\"" + values[0] + "\", \"" + values[1] + "\", \"" + values[2] + "\", " + values[3] + ", \"" + values[4] + "\", \"" + values[5] + "\")");
-    console.log(results[0]);
-    res.status(200);
+    console.log(results[0].insertId);
+    res.status(200).send(JSON.stringify(results[0]));
 });
 
 app.delete("/time/drop/:timeId", async (req, res) => {
@@ -77,11 +80,6 @@ app.delete("/time/drop/:timeId", async (req, res) => {
 
     let results = await con.promise().query("DELETE FROM time where id = " + timeId);
     console.log(results[0]);
-    res.status(200);
-});
+    res.status(200).end();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.listen(port, () => {
-    console.log("App listening at http://%s:%s", host, port);
 });
