@@ -9,6 +9,7 @@ var host = "localhost";
 
 app.use(cors());
 app.use(express.json());
+app.use("/images", express.static("images"));
 app.listen(port, host, () => {
     console.log("App listening at http://%s:%s", host, port);
 });
@@ -16,12 +17,12 @@ app.listen(port, host, () => {
 
 var con = mysql.createConnection({
     host: "localhost",
-    user: "javaScriptUser",
-    password: "password",
-    database: "carrental"
+    user: "javaScriptUser", // root
+    password: "password",  // test
+    database: "carrental" //reactmysql
 });
 
-app.get("/car", async (req, res) => {
+app.get("n", async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
 
     let results = await con.promise().query("SELECT * FROM car");
@@ -39,6 +40,17 @@ app.get("/car/:id", async (req, res) => {
 
     res.send(results[0]).status(200);
     console.log(results[0]);
+});
+
+app.get("/cars", (req, res) => {
+
+    con.query("SELECT * FROM car", (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        res.send(result);
+    });
+
 });
 
 app.get("/time/:car", async (req, res) => {
@@ -66,18 +78,12 @@ app.post("/time/reserve", async (req, res) => {
     console.log(req.body);
     const keys = Object.keys(req.body);
     const values = Object.values(req.body);
+
     console.log(values);
 
-    let conflicts = await con.promise().query("SELECT * FROM time where carId = \"" + values[0] + "\" AND ((\"" + values[1] + "\" >= startDate AND \"" + values[1] + "\" <= endDate) OR(\"" + values[2] + "\" >= startDate AND \"" + values[2] + "\" <= endDate) OR (\"" + values[1] + "\" <= startDate AND \"" + values[2] + "\" >= endDate))");
-
-
-    if (conflicts[0].length == 0) {
-        let results = await con.promise().query("insert into time (carId, startDate, endDate, price, name, email)  value (\"" + values[0] + "\", \"" + values[1] + "\", \"" + values[2] + "\", " + values[3] + ", \"" + values[4] + "\", \"" + values[5] + "\")");
-        console.log(results[0].insertId);
-        res.status(200).send(JSON.stringify(results[0]));
-    } else {
-        res.status(400).send(JSON.stringify({code :"Conflict"}));
-    }
+    let results = await con.promise().query("insert into time (carId, startDate, endDate, price, name, email)  value (\"" + values[0] + "\", \"" + values[1] + "\", \"" + values[2] + "\", " + values[3] + ", \"" + values[4] + "\", \"" + values[5] + "\")");
+    console.log(results[0].insertId);
+    res.status(200).send(JSON.stringify(results[0]));
 });
 
 app.delete("/time/drop/:timeId", async (req, res) => {
