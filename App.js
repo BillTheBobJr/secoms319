@@ -9,7 +9,7 @@ var host = "localhost";
 
 app.use(cors());
 app.use(express.json());
-app.listen(port, host,() => {
+app.listen(port, host, () => {
     console.log("App listening at http://%s:%s", host, port);
 });
 
@@ -45,7 +45,7 @@ app.get("/time/:car", async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     const car = req.params.car;
 
-    let results = await con.promise().query("SELECT * FROM time WHERE carId = \"" + car +  "\"");
+    let results = await con.promise().query("SELECT * FROM time WHERE carId = \"" + car + "\"");
     res.send(results[0]).status(200);
     console.log(results[0]);
 });
@@ -66,12 +66,18 @@ app.post("/time/reserve", async (req, res) => {
     console.log(req.body);
     const keys = Object.keys(req.body);
     const values = Object.values(req.body);
-
     console.log(values);
 
-    let results = await con.promise().query("insert into time (carId, startDate, endDate, price, name, email)  value (\"" + values[0] + "\", \"" + values[1] + "\", \"" + values[2] + "\", " + values[3] + ", \"" + values[4] + "\", \"" + values[5] + "\")");
-    console.log(results[0].insertId);
-    res.status(200).send(JSON.stringify(results[0]));
+    let conflicts = await con.promise().query("SELECT * FROM time where carId = \"" + values[0] + "\" AND ((\"" + values[1] + "\" >= startDate AND \"" + values[1] + "\" <= endDate) OR(\"" + values[2] + "\" >= startDate AND \"" + values[2] + "\" <= endDate) OR (\"" + values[1] + "\" <= startDate AND \"" + values[2] + "\" >= endDate))");
+
+
+    if (conflicts[0].length == 0) {
+        let results = await con.promise().query("insert into time (carId, startDate, endDate, price, name, email)  value (\"" + values[0] + "\", \"" + values[1] + "\", \"" + values[2] + "\", " + values[3] + ", \"" + values[4] + "\", \"" + values[5] + "\")");
+        console.log(results[0].insertId);
+        res.status(200).send(JSON.stringify(results[0]));
+    } else {
+        res.status(400).send(JSON.stringify({code :"Conflict"}));
+    }
 });
 
 app.delete("/time/drop/:timeId", async (req, res) => {
